@@ -1,12 +1,12 @@
-const userModel = require("../Models/userModel.js");
+const userModel = require('../models/userModel')
 
 exports.fetchUser = async (body) => {
-    const uResult = await userModel.findOne({ email: body.email });
-    return uResult;
-};
+  const uResult = await userModel.findOne({ email: body.email })
+  return uResult
+}
 
 exports.registerUser = async (body) => {
-    const newUser = new userModel(body);
-    await newUser.save();
-    return newUser;
-};
+  const newUser = new userModel(body)
+  await newUser.save()
+  return newUser
+}
