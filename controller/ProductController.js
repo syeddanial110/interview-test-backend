@@ -130,7 +130,7 @@ exports.deletePost = async (req, res) => {
 exports.updatePost = async (req, res) => {
   const id = req.params.postId;
   try {
-    const { title, productName, comapnyName, price, description } = req.body;
+    // const { title, productName, comapnyName, price, description } = req.body;
     const updatedProduct = await product.updateOne(
       { _id: id },
       {
