@@ -1,7 +1,7 @@
 const response = require('../Functions/validateResponse')
 const jwt = require('jsonwebtoken')
 const userFuncs = require('../Functions/userFunctions.js')
-const userModel = require('../Models/userModel')
+const userModel = require('../models/userModel')
 const bcrypt = require('bcrypt')
 
 exports.signUp = async (req, res) => {

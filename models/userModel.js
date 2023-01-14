@@ -3,7 +3,7 @@ const bcrypt = require('bcrypt')
 
 const Schema = mongoose.Schema
 
-const usersSchema = new Schema({
+const creatorSchema = new Schema({
   username: {
     type: String,
   },
@@ -21,7 +21,7 @@ const usersSchema = new Schema({
   },
 })
 
-usersSchema.pre('save', async function (next) {
+creatorSchema.pre('save', async function (next) {
   try {
     // console.log("Called before saving a user");
     const salt = await bcrypt.genSalt(10)
@@ -33,11 +33,11 @@ usersSchema.pre('save', async function (next) {
   }
 })
 
-usersSchema.methods.comparePassword = function (plainPassword, cb) {
+creatorSchema.methods.comparePassword = function (plainPassword, cb) {
   bcrypt.compare(plainPassword, this.password, function (err, isMatch) {
     if (err) return cb(err)
     cb(null, isMatch)
   })
 }
 
-module.exports = mongoose.model('UsersSchema', usersSchema)
+module.exports = mongoose.model('CretorSchema', creatorSchema)
